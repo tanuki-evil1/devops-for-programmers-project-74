@@ -5,10 +5,6 @@ on:
     branches:
       - main
 
-env:
-  CI: true
-  APP_IMAGE_NAME: tanukievil1/mydockerproject
-  COLOR_MAP: '{ success: "#008000", failure: "#800000" }'
 
 jobs:
   build:
@@ -31,10 +27,9 @@ jobs:
         with:
           context: .
           file: Dockerfile.production
-          cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}
-          cache-to: type=inline
           push: true
-          tags: ${{ env.APP_IMAGE_NAME }}
+          tags: tanukievil1/mydockerproject:latest
+          platforms: linux/amd64
 
       - name: Check
         run: make ci
