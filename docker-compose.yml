@@ -2,7 +2,7 @@ services:
   app:
     image: tanukievil1/mydockerproject
     build:
-      context: .
+      context: ./app
       dockerfile: Dockerfile.production
     command: make test
     volumes:
