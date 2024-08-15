@@ -8,28 +8,18 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_HOST=${DATABASE_HOST}
-      - DATABASE_NAME=${DATABASE_NAME}
-      - DATABASE_USERNAME=${DATABASE_USERNAME}
-      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
-
+      - DATABASE_HOST=${{ secrets.DATABASE_HOST }}
+      - DATABASE_NAME=${{ secrets.DATABASE_NAME }}
+      - DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
+      - DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
   db:
-    image: postgres:latest
-    restart: always
-    environment:
-      - POSTGRES_USER=${DATABASE_USERNAME}
-      - POSTGRES_PASSWORD=22222222
-      - POSTGRES_DB=${DATABASE_NAME}
-    ports:
-      - '5432:5432'
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 5s
       timeout: 5s
       retries: 5
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-volumes:
-  pgdata:
-    external: false
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${{ secrets.DATABASE_USERNAME }}
+      - POSTGRES_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
+      - POSTGRES_DB=${{ secrets.DATABASE_NAME }}
