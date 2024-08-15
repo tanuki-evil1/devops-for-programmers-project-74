@@ -12,12 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: | 
-          export DATABASE_HOST=${{ secrets.DATABASE_HOST }}
-          export DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
-          export DATABASE_NAME=${{ secrets.DATABASE_NAME }}
-          export DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}
-          make ci
+        run: make ci
+
   build:
     runs-on: ubuntu-latest
     steps:
