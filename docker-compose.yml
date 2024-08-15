@@ -12,9 +12,9 @@ services:
 
   app:
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile.production
-    command: bash -c 'sleep 3 && npm run test'
+    command: make test
     environment:
       DATABASE_HOST: "${DATABASE_HOST}"
       DATABASE_NAME: "${DATABASE_NAME}"
