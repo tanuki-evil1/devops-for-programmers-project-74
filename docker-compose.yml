@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.production
     command: make dev
     depends_on:
-      - db:
+      db
     environment:
       - DATABASE_HOST=${DATABASE_HOST}
       - DATABASE_NAME=${DATABASE_NAME}
