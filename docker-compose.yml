@@ -22,7 +22,7 @@ services:
       DATABASE_NAME: "${DATABASE_NAME}"
       DATABASE_USERNAME: "${DATABASE_USERNAME}"
       DATABASE_PASSWORD: "${DATABASE_PASSWORD}"
-    image: akakhan/devops-for-programmers-project-74
+    image: tanukievil1/mydockerproject
     depends_on:
       - db
 

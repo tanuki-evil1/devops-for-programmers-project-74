@@ -8,7 +8,7 @@ on:
 
 env:
 
-    APP_IMAGE_NAME: akakhan/devops-for-programmers-project-74
+    APP_IMAGE_NAME: tanukievil1/mydockerproject
 
 jobs:
   build:
